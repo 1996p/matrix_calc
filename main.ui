@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>846</width>
+    <height>846</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">QLineEdit {
+	background-color:rgb(74, 162, 36);
+	border:none;
+	border-radius:7px;
+	color:white;	
+	font-size:15px;
+}
+
+QLineEdit:hover,
+QLineEdit:focus  {
+	background-color:rgb(30, 91, 0);
+}
+
+
+QLabel {
+	color:white;
+}
+
+QFrame#container {
+	background-color: rgb(34, 34, 34);
+	border:1px solid rgb(74, 162, 36);
+
+}
+
+QLabel#appName {
+	background-color: rgb(74, 162, 36);
+
+}
+
+QLineEdit#columnsInA_input, QLineEdit#columnsInB_input, QLineEdit#rowsInA_input , QLineEdit#rowsInB_input   {
+	background-color:transparent;
+	border:none;
+	border-bottom:2px solid rgb(30, 91, 0);
+	color:white;
+	border-radius:none
+}
+
+QLineEdit#columnsInA_input:hover, QLineEdit#columnsInB_input:hover, QLineEdit#rowsInA_input:hover , QLineEdit#rowsInB_input:hover  {
+	background-color:transparent;
+	border:none;
+	border-bottom:2px solid  rgb(74, 162, 36);
+}
+
+QLineEdit#columnsInA_input:focus, QLineEdit#columnsInB_input:focus, QLineEdit#rowsInA_input:focus, QLineEdit#rowsInB_input:focus {
+	background-color:transparent;
+	border:none;
+	border-bottom:2px solid  rgb(74, 162, 36);
+}
+
+
+QPushButton {
+	background-color: rgb(66, 66, 66);
+	color:white;
+	border:none;
+}
+
+QPushButton:hover {
+	background-color:rgb(74, 162, 36)
+}
+
+QPushButton:pressed {
+	background-color:rgb(39, 118, 0)
+}
+
+QLabel#result {
+	border:2px solid rgb(74, 162, 36);
+	border-top:none;
+	border-bottom:none;
+	border-radius:20px
+}
+
+QPushButton#closeBtn {
+	background-color:transparent;
+}
+
+QPushButton#closeBtn:hover {
+	background-color:red;
+}
+
+QLabel#multiplierError {
+	background-color:rgb(255, 28, 58) ;
+	border-bottom-right-radius:15px;
+	border-bottom-left-radius:15px;
+}</string>
+   </property>
+   <widget class="QFrame" name="container">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>801</width>
+      <height>821</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="rowsInB">
+     <property name="geometry">
+      <rect>
+       <x>116</x>
+       <y>34</y>
+       <width>61</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+       <pointsize>9</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Columns B</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="multiplier">
+     <property name="geometry">
+      <rect>
+       <x>670</x>
+       <y>760</y>
+       <width>51</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+       <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>A X B</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="nameFirstMartrix">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>100</y>
+       <width>80</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+       <pointsize>11</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>MATRIX &lt;strong&gt;A&lt;/strong&gt;:</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="columnsInB">
+     <property name="geometry">
+      <rect>
+       <x>127</x>
+       <y>64</y>
+       <width>45</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+       <pointsize>9</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Rows B</string>
+     </property>
+     <property name="textFormat">
+      <enum>Qt::PlainText</enum>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="columnsInB_input">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>60</y>
+       <width>30</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>-1</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="rowsInA">
+     <property name="geometry">
+      <rect>
+       <x>5</x>
+       <y>34</y>
+       <width>62</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+       <pointsize>9</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Columns A</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="columnsInA_input">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>60</y>
+       <width>30</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>-1</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="rowsInA_input">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>30</y>
+       <width>30</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>-1</pointsize>
+      </font>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="rowsInB_input">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>30</y>
+       <width>30</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>-1</pointsize>
+      </font>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="columnsInA">
+     <property name="geometry">
+      <rect>
+       <x>14</x>
+       <y>64</y>
+       <width>41</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+       <pointsize>9</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Rows A</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="appName">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>800</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+       <pointsize>9</pointsize>
+       <italic>false</italic>
+      </font>
+     </property>
+     <property name="text">
+      <string>&lt;strong&gt;MATRIX&lt;/strong&gt; CALCULATOR</string>
+     </property>
+     <property name="textFormat">
+      <enum>Qt::AutoText</enum>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="nameSecondMartrix">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>100</y>
+       <width>80</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+       <pointsize>11</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>MATRIX &lt;strong&gt;B&lt;/strong&gt;:</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="sum">
+     <property name="geometry">
+      <rect>
+       <x>730</x>
+       <y>760</y>
+       <width>51</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+       <pointsize>10</pointsize>
+       <weight>75</weight>
+       <italic>false</italic>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>A + B</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="result">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>590</y>
+       <width>261</width>
+       <height>201</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="margin">
+      <number>5</number>
+     </property>
+     <property name="indent">
+      <number>-1</number>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="closeBtn">
+     <property name="geometry">
+      <rect>
+       <x>775</x>
+       <y>0</y>
+       <width>25</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../../../../.designer/backup/png-removebg-preview.png</normaloff>../../../../.designer/backup/png-removebg-preview.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>22</width>
+       <height>22</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QLabel" name="multiplierError">
+     <property name="geometry">
+      <rect>
+       <x>250</x>
+       <y>-16</y>
+       <width>301</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Неверная размерность матрицы</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <zorder>multiplierError</zorder>
+    <zorder>rowsInB</zorder>
+    <zorder>multiplier</zorder>
+    <zorder>nameFirstMartrix</zorder>
+    <zorder>columnsInB</zorder>
+    <zorder>columnsInB_input</zorder>
+    <zorder>rowsInA</zorder>
+    <zorder>columnsInA_input</zorder>
+    <zorder>rowsInA_input</zorder>
+    <zorder>rowsInB_input</zorder>
+    <zorder>columnsInA</zorder>
+    <zorder>appName</zorder>
+    <zorder>nameSecondMartrix</zorder>
+    <zorder>sum</zorder>
+    <zorder>result</zorder>
+    <zorder>closeBtn</zorder>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
